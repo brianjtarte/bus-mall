@@ -25,6 +25,7 @@ main {
 }
 
 ul li {
+  list-style: none;
   
 }
 
