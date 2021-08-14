@@ -26,8 +26,10 @@ main {
 
 ul li {
   list-style: none;
+
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+
+
 
 section {
   background-color: #048ABF;
