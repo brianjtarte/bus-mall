@@ -11,7 +11,7 @@ let image3 = document.querySelector('section img:nth-child(3)');
 
 let clicks = 0;
 let clicksAllowed = 25;
-// constructor
+
 function Products(name, fileExtension = 'jpg') {
   this.name = name;
   this.src = `img/${name}.${fileExtension}`;
@@ -23,12 +23,12 @@ function selectRandomProduct() {
   return Math.floor(Math.random() * allProducts.length);
 }
 function renderProducts() {
-  // call random product
+ 
   let prod1 = selectRandomProduct();
   let prod2 = selectRandomProduct();
   let prod3 = selectRandomProduct();
 
-  // google MDN array has value
+  
   while  (prod1 === prod2 || prod1 === prod3 || prod2 === prod3) {
     prod2 = selectRandomProduct();
     prod3 = selectRandomProduct();
