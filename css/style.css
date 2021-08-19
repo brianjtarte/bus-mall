@@ -29,17 +29,17 @@ ul li {
 
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-
-section {
-  background-color: #048ABF;
-  border-style: solid;
-  border-radius: 5px;
-  margin: 5px;
-  padding: 5px;
-  display: flex;
-  align-items: flex-start;
 }
-
+  section {
+    background-color: #048ABF;
+    border-style: solid;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: flex-start;
+  }
+  
 section img {
   width: 30%;
   margin: 5px;
@@ -90,4 +90,10 @@ nav {
   display: flex;
   justify-content: center;
   
+}
+
+canvas {
+  max-width: 500px;
+  max-height: 300px;
+  margin: auto;
 }
