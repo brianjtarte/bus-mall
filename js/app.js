@@ -80,6 +80,7 @@ function handleProductClick(event) {
   if (clicks === clicksAllowed) {
     myContainer.removeEventListener('click', handleProductClick);
     renderChart();
+    //calling created storage
     storeAProduct();
   } 
   
@@ -154,4 +155,5 @@ function renderChart() {
 }
 
 myContainer.addEventListener('click', handleProductClick);
+//adding to storage on page load
 getProducts();
