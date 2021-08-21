@@ -22,6 +22,8 @@ function Products( name, fileExtension = 'jpg') {
 function selectRandomProduct() {
   return Math.floor(Math.random() * allProducts.length);
 }
+
+
 function renderProducts() {
   while (indexArray.length < 6) {
     let randomNumber = selectRandomProduct();
@@ -45,6 +47,21 @@ function renderProducts() {
   allProducts[prod2].views++;
   allProducts[prod3].views++;
   console.log(indexArray);
+  
+}
+// creating storage
+function storeAProduct () {
+  let stringifyProducts = JSON.stringify(allProducts);
+  localStorage.setItem('productstorage',stringifyProducts);
+}
+// check if local storage
+function getProducts(){
+  let potentialProducts = localStorage.getItem('productstorage');
+  if(potentialProducts){
+    let parsedProducts = JSON.parse(potentialProducts);
+    allProducts = parsedProducts;
+    
+  }
 }
 function handleProductClick(event) {
   if (event.target === myContainer) {
@@ -63,7 +80,10 @@ function handleProductClick(event) {
   if (clicks === clicksAllowed) {
     myContainer.removeEventListener('click', handleProductClick);
     renderChart();
-  }
+    storeAProduct();
+  } 
+  
+ 
 }
 
 new Products ('bag');
@@ -130,6 +150,8 @@ function renderChart() {
   };
   let ctx = document.getElementById('myChart').getContext('2d');
   let myChart = new Chart(ctx, chartObject);
+  
 }
 
 myContainer.addEventListener('click', handleProductClick);
+getProducts();
