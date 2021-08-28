@@ -11,7 +11,7 @@ let image3 = document.querySelector('section img:nth-child(3)');
 let indexArray = [];
 let clicks = 0;
 let clicksAllowed = 25;
-
+//image constructor
 function Products( name, fileExtension = 'jpg') {
   this.name = name;
   this.src = `img/${name}.${fileExtension}`;
@@ -19,11 +19,12 @@ function Products( name, fileExtension = 'jpg') {
   this.clicks = 0;
   allProducts.push(this);
 }
+//get random number based on length of allProducts array
 function selectRandomProduct() {
   return Math.floor(Math.random() * allProducts.length);
 }
 
-
+//generate 3 random images and ensure no duplicates back to back
 function renderProducts() {
   while (indexArray.length < 6) {
     let randomNumber = selectRandomProduct();
@@ -63,6 +64,7 @@ function getProducts(){
     
   }
 }
+// event targeting products being clicked
 function handleProductClick(event) {
   if (event.target === myContainer) {
     alert('Please click on an image');
@@ -77,6 +79,7 @@ function handleProductClick(event) {
     }
   }
   renderProducts();
+  //once the number of clicks is equivalent to the allowed number, remove event listener (disable clicking photos) and render a chart showing the data for each photo
   if (clicks === clicksAllowed) {
     myContainer.removeEventListener('click', handleProductClick);
     renderChart();
@@ -87,6 +90,7 @@ function handleProductClick(event) {
  
 }
 
+// creating a new Products constructor, passing the image source into them
 new Products ('bag');
 new Products ('banana');
 new Products ('bathroom');
@@ -109,7 +113,7 @@ new Products ('wine-glass');
 
 
 renderProducts();
-
+// creating the chart that will render the data
 function renderChart() {
   let productClicks = [];
   let productViews = [];
@@ -153,7 +157,7 @@ function renderChart() {
   let myChart = new Chart(ctx, chartObject);
   
 }
-
+// event listener for click functionality
 myContainer.addEventListener('click', handleProductClick);
-//adding to storage on page load
+//adding to local storage on page load 
 getProducts();
